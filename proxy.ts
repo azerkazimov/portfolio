@@ -15,24 +15,19 @@ export default async function proxy(req: NextRequest) {
         secret: process.env.NEXTAUTH_SECRET,
     })
 
-    if (isAuthPage && session) {                         // email sign in verification
+    // If user is logged in but not authorized, redirect to home (only for protected pages)
+    if (session?.email && session.email !== "azer.kazimov@yahoo.com" && isProtectedPage) {
         return NextResponse.redirect(new URL("/", req.url));
     }
 
-    if (session?.email !== "azer.kazimov@yahoo.com") {
-        return NextResponse.redirect(new URL("/", req.url));
-    }
-
+    // If user is logged in and tries to access auth pages, redirect to dashboard
     if (session?.email && isAuthPage){
         return NextResponse.redirect(new URL("/dashboard", req.url));
     }
 
+    // If user is not logged in and tries to access protected pages, redirect to signin
     if (!session?.email && isProtectedPage){
         return NextResponse.redirect(new URL("/auth/signin", req.url));
-    }
-
-    if (session?.email !== "azer.kazimov@yahoo.com" && isProtectedPage){
-        return NextResponse.redirect(new URL("/", req.url));
     }
 
     return NextResponse.next();
