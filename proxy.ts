@@ -1,14 +1,22 @@
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
+import  createIntlMiddleware  from "next-intl/middleware";
+
 
 const authPages = ["/auth/signin"]
 const protectedPages = ["/dashboard"]
 
-export default async function proxy(req: NextRequest) {
-    const { pathname } = req.nextUrl;
+const intlMiddleware = createIntlMiddleware({
+    locales: ["en", "ru", "az"],
+    defaultLocale: "en",
+    localePrefix: "always",
+})
 
-    const isAuthPage = authPages.some(page => pathname.startsWith(page));
-    const isProtectedPage = protectedPages.some(page => pathname.startsWith(page));
+export default async function proxy(req: NextRequest) {
+    const { pathname } = req.nextUrl; //localhost:3000/en/about
+
+    const isAuthPage = authPages.some(page => pathname.includes(page));
+    const isProtectedPage = protectedPages.some(page => pathname.includes(page));
 
     const session = await getToken({
         req,
@@ -30,7 +38,7 @@ export default async function proxy(req: NextRequest) {
         return NextResponse.redirect(new URL("/auth/signin", req.url));
     }
 
-    return NextResponse.next();
+    return intlMiddleware(req);
 }
 
 export const config = {

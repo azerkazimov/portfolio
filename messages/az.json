@@ -1,0 +1,14 @@
+{
+    "Header":{
+        "title": "Azər Kazimov",
+        "description": "Frontend Developer | UX yönümlü interfeyslər və performanslı veb həllər"
+    },
+    "Hero": {
+        "title": "Web Developer | UI solutions",
+        "description": "Mənim Portfoliom haqqında məlumat"
+    },
+    "About": {
+        "title": "Haqqımda",
+        "description": "Haqqımda məlumat"
+    }
+}
