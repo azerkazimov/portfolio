@@ -4,7 +4,8 @@
         "description": "Frontend Developer | UX yönümlü interfeyslər və performanslı veb həllər"
     },
     "Hero": {
-        "title": "Web Developer | UI solutions",
+        "titleTop": "Web Developer",
+        "titleBottom": "UI solutions",
         "description": "Mənim Portfoliom haqqında məlumat"
     },
     "About": {

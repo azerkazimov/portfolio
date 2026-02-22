@@ -4,7 +4,8 @@
         "description": "Frontend Developer | UX-ориентированные интерфейсы и современные веб-решения"
     },
     "Hero": {
-        "title": "Веб-разработчик | UI-решения",
+        "titleTop": "Веб-разработчик",
+        "titleBottom": "UI-решения",
         "description": "Описание моего Портфолио"
     },
     "About": {

@@ -4,7 +4,8 @@
         "description": "Frontend Developer | UX-driven interfaces and high-performance web solutions"
     },
     "Hero": {
-        "title": "Web Developer | UI solutions",
+        "titleTop": "Web Developer",
+        "titleBottom": "UI solutions",
         "description": "My Portfolio description"
     },
     "About": {
