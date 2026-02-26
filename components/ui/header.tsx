@@ -1,8 +1,8 @@
 "use client";
-import { useTablet } from "@/hooks/use-tablet";
+import { useTablet } from "@/components/hooks/use-tablet";
 import { Navbar } from "@/layout/navbar";
 import Link from "next/link";
-import { useMobile } from "../../hooks/use-mobile";
+import { useMobile } from "../hooks/use-mobile";
 import { useTranslations } from "next-intl";
 
 

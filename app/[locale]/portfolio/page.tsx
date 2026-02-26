@@ -1,13 +1,9 @@
-import Counter from "@/components/pages/counter";
-import { Service } from "@/types/services";
-
+import { Service } from "@/features/services/types/services";
 
 export default async function Portfolio() {
 
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/services`);
     const services = await response.json();
-
-
 
     return (
         <div className="container mx-auto">
@@ -20,7 +16,7 @@ export default async function Portfolio() {
                     </div>
                 ))}
             </div>
-            <Counter />
+
         </div>
     )
 }
